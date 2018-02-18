@@ -19,7 +19,7 @@ public class QuizCardReader {
 
     // additional, bonus method not found in any book!
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         QuizCardReader qReader = new QuizCardReader();
         qReader.go();
     }
@@ -31,7 +31,7 @@ public class QuizCardReader {
         JPanel mainPanel = new JPanel();
         Font bigFont = new Font("sanserif", Font.BOLD, 24);
 
-        displayArea = new JTextArea(9,20);
+        displayArea = new JTextArea(9, 20);
         displayArea.setFont(bigFont);
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
@@ -61,7 +61,7 @@ public class QuizCardReader {
         frame.setJMenuBar(menuBar);
 
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(500,600);
+        frame.setSize(500, 600);
         frame.setVisible(true);
     } // close go
 
@@ -75,13 +75,14 @@ public class QuizCardReader {
                 isShowAnswer = false;
             } else {
                 // show the next question
-                if (cardIterator.hasNext()) {
-                    showNextCard();
-                } else {
-                    // there are no more cards!
-                    displayArea.setText("That was last card");
-                    nextButton.disable();
-                }
+                if (cardIterator != null)
+                    if (cardIterator.hasNext()) {
+                        showNextCard();
+                    } else {
+                        // there are no more cards!
+                        displayArea.setText("That was last card");
+                        nextButton.disable();
+                    }
             } // close if
         } // close method
     } // close inner class
@@ -89,7 +90,7 @@ public class QuizCardReader {
 
     public class OpenMenuListener implements ActionListener {
         public void actionPerformed(ActionEvent ev) {
-            JFileChooser fileOpen = new JFileChooser("C:\\Users\\Stormcoder\\Documents\\Java\\SierraBates\\QuizCard");
+            JFileChooser fileOpen = new JFileChooser("C:\\Users\\Stormcoder\\Documents\\Java\\SierraBates\\QuizCards");
             fileOpen.showOpenDialog(frame);
             loadFile(fileOpen.getSelectedFile());
         }
@@ -105,7 +106,7 @@ public class QuizCardReader {
             }
             reader.close();
 
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println("couldn't read the card file");
             ex.printStackTrace();
         }

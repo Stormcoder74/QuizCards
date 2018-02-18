@@ -149,7 +149,7 @@ public class QuizCardBuilder {
                 cardList.add(card);
             }
 
-            JFileChooser fileSave = new JFileChooser("C:\\Users\\Stormcoder\\Documents\\Java\\SierraBates\\QuizCard");
+            JFileChooser fileSave = new JFileChooser("C:\\Users\\Stormcoder\\Documents\\Java\\SierraBates\\QuizCards");
             fileSave.showSaveDialog(frame);
             saveFile(fileSave.getSelectedFile());
         }
