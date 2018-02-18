@@ -9,7 +9,6 @@ import java.io.*;
 public class QuizCardReader {
 
     private JTextArea displayArea;
-    private JTextArea answer;
     private ArrayList cardList;
     private QuizCard currentCard;
     private Iterator cardIterator;
@@ -81,7 +80,7 @@ public class QuizCardReader {
                     } else {
                         // there are no more cards!
                         displayArea.setText("That was last card");
-                        nextButton.disable();
+                        nextButton.setEnabled(false);
                     }
             } // close if
         } // close method
@@ -100,7 +99,7 @@ public class QuizCardReader {
         cardList = new ArrayList();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
                 makeCard(line);
             }
