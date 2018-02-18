@@ -76,9 +76,7 @@ public class QuizCardReader {
             } else {
                 // show the next question
                 if (cardIterator.hasNext()) {
-
                     showNextCard();
-
                 } else {
                     // there are no more cards!
                     displayArea.setText("That was last card");
