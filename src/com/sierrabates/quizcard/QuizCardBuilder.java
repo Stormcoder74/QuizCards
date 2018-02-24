@@ -171,7 +171,8 @@ public class QuizCardBuilder {
 
     private void saveFile(File file) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
             Iterator cardIterator = cardList.iterator();
             while (cardIterator.hasNext()) {
                 QuizCard card = (QuizCard) cardIterator.next();

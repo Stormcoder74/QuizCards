@@ -98,7 +98,8 @@ public class QuizCardReader {
     private void loadFile(File file) {
         cardList = new ArrayList();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            FileReader fileReader = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fileReader);
             String line;
             while ((line = reader.readLine()) != null) {
                 makeCard(line);
